@@ -1,0 +1,18 @@
+---
+- hosts: all 
+  gather_facts: no
+  become: true
+  tasks:
+   - name:  Install Git
+     yum:
+      name: Git
+      state: latest
+   - name:  Install vim
+     yum:
+      name: vim
+      state: latest
+   - name:  Install vim
+     yum:
+      name: vim
+      state: latest
+...

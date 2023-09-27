@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: no
+  become: true
+  tasks:
+   - name: Install packages
+     yum:
+      name: [git,vim,zip,unzip]
+      state: present
+...

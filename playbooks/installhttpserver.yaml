@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  gather_facts: no
+  handlers:
+  - name: Re-Start the Http server
+    service:
+     name: httpd
+     state: started
+  tasks:
+   - name: Install Apache HTTP server
+     yum:
+      name: httpd
+     state: latest
+   - name: Copy index.html  
+     file:
+     src: index.html
+     dest: /var/www/html/index.html
+  notify:
+   - Restart the HTTP Server
+...   

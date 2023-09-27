@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: no
+  become: true
+  tasks:
+   - name: Install Java
+     yum:
+      name={{javaVersion}}
+...

@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: no
+  become: true
+  tasks:
+   - name: adding users
+     user:
+      name: "{{item}}"
+      with-items:
+       - hari
+       - guru
+       - yogesh 
+       - chitti
+       - harjeet
+...

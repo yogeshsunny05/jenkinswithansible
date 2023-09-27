@@ -1,0 +1,12 @@
+---
+- hosts : appservers
+  gather_facts: false
+  tasks:
+  - name: creating the file
+    file:
+     path: yogesh.yaml
+     owner: root
+     group: root
+     mode: 1777
+     
+...
