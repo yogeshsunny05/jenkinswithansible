@@ -5,8 +5,8 @@
   tasks:
    - name: adding users
      user:
-      name: "{{item}}"
-      with-items:
+      name: "{{user}}"
+      with-users:
        - hari
        - guru
        - yogesh 
