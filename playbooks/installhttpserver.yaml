@@ -2,20 +2,21 @@
 - hosts: all
   become: true
   gather_facts: no
-  handlers:
-  - name: Re-Start the Http server
+  vars:
+    companyName: YT
+    location: dmm
+    contact: 6304272470
+  tasks:
+  - name: Install Apache HTTP server
+    yum:
+     name: httpd
+     state: latest
+  - name: template index.html
+    template:
+     src: index.html
+     dest: /var/www/html/index.html
+  - name: Start the Http server
     service:
      name: httpd
      state: started
-  tasks:
-   - name: Install Apache HTTP server
-     yum:
-      name: httpd
-     state: latest
-   - name: Copy index.html  
-     copy:
-     src: index.html
-     dest: /var/www/html/index.html
-  notify:
-   - Restart the HTTP Server
-...   
+...
